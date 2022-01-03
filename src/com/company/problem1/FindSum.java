@@ -20,7 +20,10 @@ Bonus: Can you do this in one pass?
 
 public class FindSum {
     /*
-
+    Nested loop solution.  The outer loop iterates over the elements of the list, the second loop iterates over the rest
+    of the list looking for the number that makes the difference of the target minus the value the outer loop is currently
+    looking at.
+    Time complexity: O(n!)
      */
     static public boolean twoLoopSolution(List<Integer> list,Integer target){
         if (list == null || list.size() < 2) {
@@ -36,6 +39,12 @@ public class FindSum {
         return false;
     }
 
+    /*
+    Hash table solution.  Using a hash table the problem can be solved with a single loop.  As the loop iterates of each
+    element of the list, check to see if the difference of target - the current list value is in the hash table.  If it
+    is, return true.  Otherwise, add the current value to the hash table.
+    Time complexity: O(n)
+     */
     static public boolean singleLoopSolution(List<Integer> list,Integer target){
         if (list == null){
             return false;
